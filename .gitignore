@@ -1,6 +1,8 @@
 # History files
 .Rhistory
 .Rapp.history
+*.Rproj
+*.DS_Store
 
 # Session Data files
 .RData

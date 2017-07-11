@@ -1,7 +1,7 @@
 NBA Shot Prediction
 ================
 Ryan Rozema
-02 June, 2017
+10 July, 2017
 
 Introduction
 ============
