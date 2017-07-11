@@ -2,17 +2,7 @@
 title: "NBA Shot Prediction"
 author: "Ryan Rozema"
 date: "02 June, 2017"
-output:
-  html_document:
-    theme: cosmo
-    toc: no
-    toc_depth: 3
-  pdf_document:
-    toc: no
-    toc_depth: 3
-  word_document:
-    toc: no
-    toc_depth: '3'
+output: rmarkdown::github_document
 ---
 
 ```{r,warning=FALSE,message=FALSE,echo=FALSE}
@@ -53,13 +43,13 @@ theme_set(theme_bw(12))
 # Data Preparation
 ```{r,cache=TRUE}
 # Read in the data set so that it can be referenced throughout the program. 
-shot_logs = read.csv("../dataset/shot_logs.csv",header = TRUE)
+shot_logs = read.csv("dataset/shot_logs.csv",header = TRUE)
 
 # Query to get all of the shots taken by Anthony Davis.
 shot_logs_anthony_davis = sqldf("select * from shot_logs where player_name = 'anthony davis'")
 
 # Write a new table that we will be using throughout the rest of the code.
-write.table(shot_logs_anthony_davis, file = '../dataset/shot_logs_anthony_davis.csv', append = TRUE, row.names = FALSE, col.names = FALSE, quote = TRUE, sep = ',')
+write.table(shot_logs_anthony_davis, file = 'dataset/shot_logs_anthony_davis.csv', append = TRUE, row.names = FALSE, col.names = FALSE, quote = TRUE, sep = ',')
 
 # Collect the summary statistics of the data that we have collected. This will give us a lot of information about our data that we are analyzing.
 summary(shot_logs_anthony_davis)
