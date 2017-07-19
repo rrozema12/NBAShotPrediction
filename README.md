@@ -97,7 +97,7 @@ ggplot(shot_logs_anthony_davis, aes(x=SHOT_DIST)) +
   theme(plot.title = element_text(hjust = 0.5))
 ```
 
-![](Prediction_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
 ``` r
 ggplot(shot_logs_anthony_davis, aes(x=CLOSE_DEF_DIST)) + 
@@ -107,7 +107,7 @@ ggplot(shot_logs_anthony_davis, aes(x=CLOSE_DEF_DIST)) +
   scale_x_continuous(limits = c(0,20))
 ```
 
-![](Prediction_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
 ``` r
 ggplot(shot_logs_anthony_davis, aes(x=SHOT_CLOCK)) + 
@@ -116,7 +116,7 @@ ggplot(shot_logs_anthony_davis, aes(x=SHOT_CLOCK)) +
   theme(plot.title = element_text(hjust = 0.5))
 ```
 
-![](Prediction_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
 Classification
 ==============
