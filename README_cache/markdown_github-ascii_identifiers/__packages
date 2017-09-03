@@ -1,0 +1,16 @@
+base
+methods
+datasets
+utils
+grDevices
+graphics
+stats
+knitr
+pander
+ggplot2
+gridExtra
+plotly
+proto
+gsubfn
+RSQLite
+sqldf

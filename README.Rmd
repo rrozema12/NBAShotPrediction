@@ -54,7 +54,10 @@ write.table(shot_logs_anthony_davis, file = 'dataset/shot_logs_anthony_davis.csv
 summary(shot_logs_anthony_davis)
 ```
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> bf6aae8a4b2fdd25645937e541c716e45eab1901
 # Data Visualization
 As you can see from the graph below, the distance from the basket plays a large factor in whether Anthony Davis makes a shot or not.  It seems to be that when he he is just about 8 feet from the basket, he starts to miss more shots than he makes.  This makes sense because he is a 7 feet tall player in the NBA which means that he plays under the basket a lot.
 ```{r, fig.width=10,echo=FALSE}
@@ -80,6 +83,3 @@ ggplot(shot_logs_anthony_davis, aes(x=SHOT_CLOCK)) +
   labs(x = "Time Left on Shot Clock", y = "Density", title = "Shot Clock vs Result", color = "Shot Result") + 
   theme(plot.title = element_text(hjust = 0.5))
 ```
-
-# Classification
-### K-Nearest Neighbors

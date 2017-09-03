@@ -81,8 +81,11 @@ As you can see from the graph below, the distance from the basket plays a large 
 It looks like the distance from the defender does not make much of a difference for Anthony Davis. Both of the graphs are extremely similar. ![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-5-1.png)
 
 This graph points out that it is more likely that Anthony Davis will make a shot if he takes a shot before between 16 and 24 seconds left on the shot clock. ![](README_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-6-1.png)
+<<<<<<< HEAD
+=======
 
 Classification
 ==============
 
 ### K-Nearest Neighbors
+>>>>>>> bf6aae8a4b2fdd25645937e541c716e45eab1901

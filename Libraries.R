@@ -1,0 +1,6 @@
+library(knitr)
+library(pander)
+library(ggplot2)
+library(gridExtra)
+library(plotly)
+library(sqldf)
