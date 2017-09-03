@@ -8,7 +8,6 @@ output: rmarkdown::github_document
 ```{r,warning=FALSE,message=FALSE,echo=FALSE}
 library(knitr)
 library(pander)
-library(dplyr)
 library(ggplot2)
 library(gridExtra)
 library(plotly)
@@ -18,7 +17,6 @@ library(sqldf)
 # Introduction
 The dataset that we will be studying shots taken by NBA player Anthony Davis.
 
-# Background
 This is a relatively large dataset. As stated in the introduction, it has over 120,000 instances but it also has 21 attributes. Because we are only looking at Anthony Davis's shots, we were able to cut the data down to just under 900 instances.  Some of the attributes that are in this dataset we won't worry too much about because they aren't as important to predicting a shot in my opinion. Some of the attributes we will be working with are as follows:  
   1. **Location**: This is a binary attribute that is denoted by n **"A"** for an away game and a **"H"** for a home game.  
   2. **Final Margin**: This is a continuous attribute that tells us the difference in the score between the home team and the away team.  
@@ -30,7 +28,7 @@ This is a relatively large dataset. As stated in the introduction, it has over 1
   8. **Closest Defender Distance**: This is a continuous attribute that tells us the distance between the shooter and the closest defender.  
   9. **Shot Result - Classifier**: This is a binary attribute that will state whether the shot was made or missed by the player.  
 
-```{r,echo=FALSE,warning=FALSE,message=FALSE}
+```{r,echo=FALSE,warning=FALSE,message=FALSE, echo=FALSE}
 opts_chunk$set(tidy=FALSE,size="small",fig.width=4,
                fig.height=4,warning=FALSE, message=FALSE,collapse=TRUE)
 
@@ -41,7 +39,8 @@ theme_set(theme_bw(12))
 ```
 
 # Data Preparation
-```{r,cache=TRUE}
+This shows all of the summary data points for each column of the data set. This will be useful for quick reference later on in the document.
+```{r,cache=TRUE, echo=FALSE}
 # Read in the data set so that it can be referenced throughout the program. 
 shot_logs = read.csv("dataset/shot_logs.csv",header = TRUE)
 
@@ -55,15 +54,18 @@ write.table(shot_logs_anthony_davis, file = 'dataset/shot_logs_anthony_davis.csv
 summary(shot_logs_anthony_davis)
 ```
 
+
 # Data Visualization
-```{r, fig.width=10}
+As you can see from the graph below, the distance from the basket plays a large factor in whether Anthony Davis makes a shot or not.  It seems to be that when he he is just about 8 feet from the basket, he starts to miss more shots than he makes.  This makes sense because he is a 7 feet tall player in the NBA which means that he plays under the basket a lot.
+```{r, fig.width=10,echo=FALSE}
 ggplot(shot_logs_anthony_davis, aes(x=SHOT_DIST)) + 
   geom_density(aes(color=SHOT_RESULT)) + 
   labs(x = "Shot Distance", y = "Density", title = "Shot Distance vs Result", color = "Shot Result") + 
   theme(plot.title = element_text(hjust = 0.5))
 ```
 
-```{r, fig.width=10, warning=FALSE}
+It looks like the distance from the defender does not make much of a difference for Anthony Davis.  Both of the graphs are extremely similar.
+```{r, fig.width=10, warning=FALSE, echo=FALSE}
 ggplot(shot_logs_anthony_davis, aes(x=CLOSE_DEF_DIST)) + 
   geom_density(aes(color=SHOT_RESULT)) + 
   labs(x = "Closest Defender", y = "Density", title = "Closest Defender vs Result", color = "Shot Result") + 
@@ -71,7 +73,8 @@ ggplot(shot_logs_anthony_davis, aes(x=CLOSE_DEF_DIST)) +
   scale_x_continuous(limits = c(0,20))
 ```
 
-```{r, fig.width=10,warning=FALSE}
+This graph points out that it is more likely that Anthony Davis will make a shot if he takes a shot before between 16 and 24 seconds left on the shot clock.
+```{r, fig.width=10,warning=FALSE, echo=FALSE}
 ggplot(shot_logs_anthony_davis, aes(x=SHOT_CLOCK)) + 
   geom_density(aes(color=SHOT_RESULT)) + 
   labs(x = "Time Left on Shot Clock", y = "Density", title = "Shot Clock vs Result", color = "Shot Result") + 
